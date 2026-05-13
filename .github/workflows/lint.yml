@@ -9,10 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Setup Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
 
       - name: Install dependency
         run: |
@@ -25,10 +27,10 @@ jobs:
 
       - name: Run black
         run: |
-          black test_file.py
+          black --check test_file.py
 
       - name: Run Ruff
         run: |
-          ruff test_file.py
+          ruff check test_file.py
           
 
