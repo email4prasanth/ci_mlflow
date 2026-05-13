@@ -5,6 +5,7 @@ def display(name):
 def add(a, b):
     print(f"return sum is {a + b}")
 
+
 name = "prasanth"
 a = 2
 b = 3
