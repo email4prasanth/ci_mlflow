@@ -6,7 +6,12 @@ on:
       - cicd
 jobs:
   lint-deploy:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: ["ubuntu-latest","windos-latest","macos-lates"]
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
