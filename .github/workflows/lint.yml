@@ -5,7 +5,7 @@ on:
     branches:
       - cicd
 jobs:
-  lint-deploy:
+  lint-test:
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -29,14 +29,28 @@ jobs:
 
       - name: Run flake8
         run: |
-          flake8 test_file.py
+          flake8 example.py
 
       - name: Run black
         run: |
-          black --check test_file.py
+          black --check example.py
 
       - name: Run Ruff
         run: |
-          ruff check test_file.py
-          
+          ruff check example.py
+  unit-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@4
+
+      - name: Setup python
+        uses: action/setup-python@5
+        with:
+          python-version: "3.12"
+
+      - name: run unit test
+        run: |
+          python -m unittest discover
+
 
