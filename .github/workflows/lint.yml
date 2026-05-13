@@ -39,6 +39,8 @@ jobs:
         run: |
           ruff check example.py
   unit-test:
+    needs: 
+      - lint-test
     runs-on: ${{ matrix.os}}
 
     strategy:
