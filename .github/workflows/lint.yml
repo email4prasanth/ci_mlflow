@@ -17,7 +17,7 @@ jobs:
       - name: Install dependency
         run: |
           python -m pip install --upgrade pip
-          pip install flake8 balck ruff
+          pip install flake8 black ruff
 
       - name: Run flake8
         run: |
@@ -29,6 +29,6 @@ jobs:
 
       - name: Run Ruff
         run: |
-          Ruff test_file.py
+          ruff test_file.py
           
 
