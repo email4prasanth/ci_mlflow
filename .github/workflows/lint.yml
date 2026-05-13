@@ -10,7 +10,7 @@ jobs:
 
     strategy:
       matrix:
-        os: ["ubuntu-latest","windos-latest","macos-lates"]
+        os: ["ubuntu-latest","windows-latest","macos-latest"]
 
     steps:
       - name: Checkout code
